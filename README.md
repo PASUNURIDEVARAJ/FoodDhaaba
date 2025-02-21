@@ -18,5 +18,9 @@
 - Added data to cart using seletor
 - Showing empty cart if cart is empty
 - Showing card is adding only one time , if it is added  again vice versa
+- Show no of increments in add cart
+- Calculate total cost for items tht are in cart
+- Install react-hot-toast   
+- Implemented handleToast
 
 

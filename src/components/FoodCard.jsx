@@ -3,10 +3,11 @@ import { IoIosStar } from "react-icons/io";
 import { useDispatch } from 'react-redux';
 import {addToCart} from "../Redux/Slices/CartSlice"
 
-const FoodCard = ({id ,name, price, desc, rating, img}) => {
+const FoodCard = ({id ,name, price, desc, rating, img , handleToast}) => {
     const dispatch = useDispatch();
     const handleAddCart= ()=> {
-        dispatch(addToCart({id, name, price , rating, img, qty:1}))
+        dispatch(addToCart({id, name, price , rating, img, qty:1})),
+        handleToast(name)
     }
   return (
     <div className="font-bold w-[250px] bg-white p-5 flex flex-col
@@ -28,8 +29,10 @@ const FoodCard = ({id ,name, price, desc, rating, img}) => {
                 <IoIosStar className="mr-1 text-yellow-300 text-lg "/>{rating} 
             </span>
             <button onClick={handleAddCart} 
+            
             className="bg-green-500 text-white p-1 hover:bg-green-600 rounded-lg text-lg"
             > add cart</button>
+           
         </div>
     </div>
 

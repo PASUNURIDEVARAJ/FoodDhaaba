@@ -12,4 +12,11 @@
 - Create  a Add cart 
 - Adiing data to cart
 - Intro to Redux tool kit
+- Install redux tool kit
+- Dispatch data to store (REDUX)
+- Added Toggle feature to store
+- Added data to cart using seletor
+- Showing empty cart if cart is empty
+- Showing card is adding only one time , if it is added  again vice versa
+
 

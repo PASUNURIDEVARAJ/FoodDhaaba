@@ -9,4 +9,7 @@
 - Created Mock Data
 - get the mock data to card in parent component foodItem
 - Provided props in FoodCard
+- Create  a Add cart 
+- Adiing data to cart
+- Intro to Redux tool kit
 

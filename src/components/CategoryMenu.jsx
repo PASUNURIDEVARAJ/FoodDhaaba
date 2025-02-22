@@ -1,38 +1,57 @@
-import React from 'react'
+import { useEffect, useState } from "react";
+import FoodData from "../Data/FoodData";
+import { useDispatch, useSelector } from "react-redux";
+import { setCategory } from "../Redux/Slices/CategorySlice";
+
+
+
 
 const CategoryMenu = () => {
-  return (
-    <div className="ml-5 py-6">
-        <h1 className="text-3xl font-bold">Find the best Food</h1>
+    const [categories, setCategories] = useState([]);
+  
+    const listUniqueCategories = () => {
+      const uniqueCategories = [
+        ...new Set(FoodData.map((food) => food.category)),
+      ];
+      setCategories(uniqueCategories);
+      console.log(uniqueCategories);
+    };
+  
+    useEffect(() => {
+      listUniqueCategories();
+    }, []);
+  
+    const dispatch = useDispatch();
+    const selectedCategory = useSelector((state) => state.category.category);
+  
+    return (
+      <div className="ml-6">
+        <h3 className="text-xl font-semibold">Find the best food</h3>
         <div className="my-5 flex gap-3 overflow-x-scroll scroll-smooth lg:overflow-x-hidden">
-            <button 
-            className="px-3 py-2 text-lg
-             bg-gray-500 rounded-md hover:bg-green-500 hover:text-white font-bold">
-                All
-            </button>
-            <button 
-            className="px-3 py-2 text-lg
-             bg-gray-500 rounded-md hover:bg-green-500 hover:text-white font-bold">
-                BreakFast
-            </button>
-            <button 
-            className="px-3 py-2 text-lg
-             bg-gray-500 rounded-md hover:bg-green-500 hover:text-white font-bold">
-                Lunch
-            </button>
-            <button 
-            className="px-3 py-2 text-lg
-             bg-gray-500 rounded-md hover:bg-green-500 hover:text-white font-bold">
-                Dinner
-            </button>
-            <button 
-            className="px-3 py-2 text-lg
-             bg-gray-500 rounded-md hover:bg-green-500 hover:text-white font-bold">
-                Snacks
-            </button>
+          <button
+            onClick={() => dispatch(setCategory("All"))}
+            className={`px-3 py-2 bg-gray-600 font-bold rounded-lg hover:bg-green-500 hover:text-white ${
+              selectedCategory === "All" && "bg-green-500 "
+            }`}
+          >
+            All
+          </button>
+          {categories.map((category, index) => {
+            return (
+              <button
+                onClick={() => dispatch(setCategory(category))}
+                key={index}
+                className={`px-3 py-2 bg-gray-600 font-bold rounded-lg hover:bg-green-500 hover:text-white ${
+                  selectedCategory === category && "bg-green-500 text-white"
+                } `}
+              >
+                {category}
+              </button>
+            );
+          })}
         </div>
-    </div>
-  )
-}
-
-export default CategoryMenu;
+      </div>
+    );
+  };
+  
+  export default CategoryMenu;

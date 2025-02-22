@@ -3,11 +3,16 @@ import { AiOutlinePlus ,  AiOutlineMinus} from "react-icons/ai"
 import { MdDelete } from "react-icons/md";
 import{removeFromCart, incrementQty, decrementQty} from "../Redux/Slices/CartSlice";
 import { useDispatch } from 'react-redux';
+import toast, { Toaster } from 'react-hot-toast';
 
 const CartItem = ({id , name, price, img , qty}) => {
     const dispatch = useDispatch();
     const handleDelete = ()=> {
         dispatch(removeFromCart({id, name, price, img, qty}))
+        toast(`${name} removed`, {
+            icon: "👋"
+           
+          });
     }
 
     const hadleDecrementQty= ()=> {

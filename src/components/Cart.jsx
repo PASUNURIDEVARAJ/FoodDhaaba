@@ -6,7 +6,7 @@ import { FaShoppingCart } from "react-icons/fa";
 
 
 const Cart = () => {  
-  const[activeCart , setActiveCart ] = useState(true);
+  const[activeCart , setActiveCart ] = useState(false);
   const cartItems = useSelector((store)=> store.cart.cart)
   const totalQtys = cartItems.reduce((totalQtys, item) => totalQtys + item.qty, 0 )
   const totalPrice = cartItems.reduce((total, item) => total + item.qty * item.price , 0)

@@ -22,5 +22,10 @@
 - Calculate total cost for items tht are in cart
 - Install react-hot-toast   
 - Implemented handleToast
+- Enable toast for Success of adding card to Cart vice versa
+- Added Funtionality to Buttons
+- Added Seacrh Functionality
+
+
 
 

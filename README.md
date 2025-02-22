@@ -25,6 +25,8 @@
 - Enable toast for Success of adding card to Cart vice versa
 - Added Funtionality to Buttons
 - Added Seacrh Functionality
+- added Order Success Component
+
 
 
 

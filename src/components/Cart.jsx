@@ -3,9 +3,12 @@ import { IoCloseCircleOutline } from "react-icons/io5";
 import CartItem from './CartItem';
 import { useSelector } from 'react-redux';
 import { FaShoppingCart } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
+
 
 
 const Cart = () => {  
+ const navigate = useNavigate();
   const[activeCart , setActiveCart ] = useState(false);
   const cartItems = useSelector((store)=> store.cart.cart)
   const totalQtys = cartItems.reduce((totalQtys, item) => totalQtys + item.qty, 0 )
@@ -41,6 +44,7 @@ const Cart = () => {
                 <h1 className="font-bold text-lg text-slate-500">total amount : {totalPrice}</h1>
                 <hr className="w-[90vw] lg:w-[18vw] my-2 "></hr>
                 <button 
+                onClick={()=> navigate("/success")}
                 className="bg-slate-700 font-bold px-3 w-[90vw] lg:w-[18vw] mb-5 text-white py-2 rounded-md">
                 Place Order
                 </button>
